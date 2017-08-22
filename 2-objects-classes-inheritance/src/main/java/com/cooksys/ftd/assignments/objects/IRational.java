@@ -30,6 +30,7 @@ interface IRational {
 	 *             if the given denominator is 0
 	 */
 	IRational construct(int numerator, int denominator) throws IllegalArgumentException;
+	
 
 	/**
 	 * negation of rational values
@@ -54,7 +55,8 @@ interface IRational {
 	 *             if the numerator of this rational value is 0
 	 */
 	default IRational invert() throws IllegalStateException {
-		throw new NotImplementedException();
+		if(getNumerator()==0) throw new IllegalStateException();
+		return construct(getDenominator(), getNumerator());
 	}
 
 	/**
@@ -69,7 +71,8 @@ interface IRational {
 	 *             if that is null
 	 */
 	default IRational add(IRational that) throws IllegalArgumentException {
-		throw new NotImplementedException();
+		if(that==null) throw new IllegalArgumentException();
+		return construct((getNumerator()*that.getDenominator())+(that.getNumerator()*getDenominator()),(getDenominator()*that.getDenominator()));
 	}
 
 	/**
@@ -84,7 +87,8 @@ interface IRational {
 	 *             if that is null
 	 */
 	default IRational sub(IRational that) throws IllegalArgumentException {
-		throw new NotImplementedException();
+		if(that==null) throw new IllegalArgumentException();
+		return construct((getNumerator()*that.getDenominator())-(that.getNumerator()*getDenominator()),getDenominator()*that.getDenominator());
 	}
 
 	/**
@@ -99,7 +103,9 @@ interface IRational {
 	 *             if that is null
 	 */
 	default IRational mul(IRational that) throws IllegalArgumentException {
-		throw new NotImplementedException();
+		if(that==null) throw new IllegalArgumentException();
+		
+		return construct(getNumerator()*that.getNumerator(),getDenominator()*that.getDenominator());
 	}
 
 	/**
@@ -114,6 +120,7 @@ interface IRational {
 	 *             if that is null or if the numerator of that is 0
 	 */
 	default IRational div(IRational that) throws IllegalArgumentException {
-		throw new NotImplementedException();
+		if(that==null) throw new IllegalArgumentException();
+		return construct(getNumerator()*that.getDenominator(),getDenominator()*that.getNumerator());
 	}
 }

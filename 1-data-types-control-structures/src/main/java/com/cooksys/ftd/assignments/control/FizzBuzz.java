@@ -1,5 +1,8 @@
 package com.cooksys.ftd.assignments.control;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
@@ -26,7 +29,8 @@ public class FizzBuzz {
      * @throws IllegalArgumentException if b is zero
      */
     public static boolean divides(int a, int b) throws IllegalArgumentException {
-        throw new NotImplementedException();
+    	if(b==0) throw new IllegalArgumentException();
+        return a%b==0;
     }
 
     /**
@@ -41,7 +45,13 @@ public class FizzBuzz {
      * @return a message according to the format above, or null if n is not divisible by either 3 or 5
      */
     public static String message(int n) {
-        throw new NotImplementedException();
+        String result=null;
+        if(n%3==0 && n%5==0) result = n +": FizzBuzz";
+        else if (n%3==0) result = n +": Fizz";
+        else if (n%5==0) result = n +": Buzz";
+        
+        return result;
+        
     }
 
     /**
@@ -55,7 +65,26 @@ public class FizzBuzz {
      * @throws IllegalArgumentException if the given end is less than the given start
      */
     public static String[] messages(int start, int end) throws IllegalArgumentException {
-        throw new NotImplementedException();
+    	
+    	if(end<start) throw new IllegalArgumentException();
+    	
+    	//ArrayList<String> result = new ArrayList<>();
+    	
+    	String []result =new String[end-start];
+    	
+    	int count=0;
+    	
+    	for(int i=start; i<end;i++){
+    		if(message(i)!=null){
+    			//result.add(message(i));
+    			
+    			result[count]=message(i);
+    			count++;
+    		}
+    	}
+    	
+    	return //result.toArray(new String[result.size()]);
+    			Arrays.copyOf(result,count);
     }
 
     /**
@@ -63,7 +92,7 @@ public class FizzBuzz {
      * the relevant messages to sysout
      */
     public static void main(String[] args) {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
 }

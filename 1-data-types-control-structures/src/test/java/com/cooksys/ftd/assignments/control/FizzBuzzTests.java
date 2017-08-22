@@ -40,6 +40,7 @@ public class FizzBuzzTests {
 
     @Test
     public void messagesTest() {
+    	    	
         Assert.assertArrayEquals(new String[]{}, FizzBuzz.messages(3, 3));
         Assert.assertArrayEquals(new String[]{"3: Fizz"}, FizzBuzz.messages(3, 4));
         Assert.assertArrayEquals(new String[]{"3: Fizz"}, FizzBuzz.messages(3, 5));

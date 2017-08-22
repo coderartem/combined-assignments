@@ -18,9 +18,9 @@ public class Rational implements IRational {
      * @throws IllegalArgumentException if the given denominator is 0
      */
     public Rational(int numerator, int denominator) throws IllegalArgumentException {
-    	if(denominator==0) {
-    		throw new IllegalArgumentException();
-    		}
+    	
+    	if(denominator==0) throw new IllegalArgumentException();
+    	
     	this.numerator=numerator;
     	this.denominator=denominator;
     }
@@ -53,10 +53,10 @@ public class Rational implements IRational {
      * @throws IllegalArgumentException if the given denominator is 0
      */
     @Override
-    public Rational construct(int numerator, int denominator) throws IllegalArgumentException { 	
-    	if(denominator==0) {
-    		throw new IllegalArgumentException();
-    	}
+    public Rational construct(int numerator, int denominator) throws IllegalArgumentException { 
+    	
+    	if(denominator==0) throw new IllegalArgumentException();
+    	
         return new Rational(numerator,denominator);
     }
 
@@ -89,10 +89,7 @@ public class Rational implements IRational {
     @Override
     public String toString() {
     	
-        /*String result = new Double(getNumerator()).toString()+"/"+new Integer(getDenominator()).toString();
-        return ((getNumerator()/getDenominator())<0)?"-"+result:result;*/
-        	System.out.println((getNumerator()<0)?(getNumerator()*-1)+"/"+(getDenominator()*-1):getNumerator()+"/"+getDenominator());
-        	return (getDenominator()<0)?(getNumerator()*-1)+"/"+(getDenominator()*-1):getNumerator()+"/"+getDenominator();
+       return (getDenominator()<0)?(getNumerator()*-1)+"/"+(getDenominator()*-1):getNumerator()+"/"+getDenominator();
         
     }
 }

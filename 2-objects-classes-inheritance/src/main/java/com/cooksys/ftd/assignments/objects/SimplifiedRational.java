@@ -15,10 +15,7 @@ public class SimplifiedRational implements IRational {
     	
         if(a<=0 || b<0) throw new IllegalArgumentException();
         
-        if(b==0){
-        	return a;
-        }
-        return gcd(b,a%b);
+        return b==0? a : gcd(b,a%b);
     }
 
     /**
@@ -41,7 +38,7 @@ public class SimplifiedRational implements IRational {
     	if(numerator==0){
     		return new int[]{0,1};
     	}else{
-    		return new int[]{numerator/gcd(Math.abs(numerator),Math.abs(denominator)),denominator/gcd(Math.abs(numerator),Math.abs(denominator))};
+    		return new int[]{ numerator/gcd(Math.abs(numerator),Math.abs(denominator)) , denominator/gcd(Math.abs(numerator),Math.abs(denominator)) };
     	}
     }
     
@@ -112,16 +109,9 @@ public class SimplifiedRational implements IRational {
     @Override
     public boolean equals(Object obj) {
     	
-    	if( obj instanceof SimplifiedRational){
-    		if(((SimplifiedRational) obj).getNumerator()==getNumerator() && ((SimplifiedRational) obj).getDenominator()==getDenominator()){
-    			return true;
-    		}
-    		
-    		else return false;
-    	}
-    	else return false;
-    }
+    	return (obj instanceof IRational && ((IRational) obj).getNumerator()==getNumerator() && ((IRational) obj).getDenominator()==getDenominator())?true:false;
 
+    }
     /**
      * If this is positive, the string should be of the form `numerator/denominator`
      * <p>
@@ -132,7 +122,7 @@ public class SimplifiedRational implements IRational {
     @Override
     public String toString() {
     	
-    	return (getDenominator()<0)?(getNumerator()*-1)+"/"+(getDenominator()*-1):getNumerator()+"/"+getDenominator();
+    	return getDenominator()<0 ? getNumerator()*-1+"/"+getDenominator()*-1 : getNumerator()+"/"+getDenominator();
     }
     
 }

@@ -68,15 +68,8 @@ public class Rational implements IRational {
      */
     @Override
     public boolean equals(Object obj) {
-    	
-    	if( obj instanceof Rational){
-    		if(((Rational) obj).getNumerator()==getNumerator() && ((Rational) obj).getDenominator()==getDenominator()){
-    			return true;
-    		}
-    		
-    		else return false;
-    	}
-    	else return false;
+    	    	
+    	return (obj instanceof IRational && ((IRational) obj).getNumerator()==getNumerator() && ((IRational) obj).getDenominator()==getDenominator())?true:false;
     }
 
     /**
@@ -89,7 +82,7 @@ public class Rational implements IRational {
     @Override
     public String toString() {
     	
-       return (getDenominator()<0)?(getNumerator()*-1)+"/"+(getDenominator()*-1):getNumerator()+"/"+getDenominator();
+       return getDenominator()<0 ? getNumerator()*-1+"/"+getDenominator()*-1 : getNumerator()+"/"+getDenominator();
         
     }
 }

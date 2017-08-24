@@ -42,9 +42,6 @@ public class SimplifiedRational implements IRational {
     	}
     }
     
-    private int numerator;
-    private int denominator;
-
     /**
      * Constructor for rational values of the type:
      * <p>
@@ -57,6 +54,10 @@ public class SimplifiedRational implements IRational {
      * @param denominator the denominator of the rational value
      * @throws IllegalArgumentException if the given denominator is 0
      */
+
+    private int numerator;
+    private int denominator;
+    
     public SimplifiedRational(int numerator, int denominator) throws IllegalArgumentException {
     	
     	if(denominator==0) throw new IllegalArgumentException();

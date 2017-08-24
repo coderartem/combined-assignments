@@ -28,7 +28,7 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      * @return true if the element was added successfully, false otherwise
      */
 	
-	Set<Capitalist> inputCollection = new HashSet<>();
+	private Set<Capitalist> inputCollection = new HashSet<>();
 	
     @Override
     public boolean add(Capitalist capitalist) {
@@ -127,7 +127,7 @@ public class MegaCorp implements Hierarchy<Capitalist, FatCat> {
      * or if its parent is not in the hierarchy
      */
     
-    List<FatCat> parentChain = new ArrayList<>();
+    private List<FatCat> parentChain = new ArrayList<>();
     
     @Override
     public List<FatCat> getParentChain(Capitalist capitalist) {

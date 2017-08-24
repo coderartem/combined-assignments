@@ -82,7 +82,11 @@ public class Rational implements IRational {
     @Override
     public String toString() {
     	
-       return getDenominator()<0 ? getNumerator()*-1+"/"+getDenominator()*-1 : getNumerator()+"/"+getDenominator();
+      // return getDenominator()<0 ? getNumerator()*-1+"/"+getDenominator()*-1 : getNumerator()+"/"+getDenominator();
+       
+       String result = Math.abs(getNumerator())+"/"+Math.abs(getDenominator());
+       
+       return (double)getNumerator()/getDenominator()<0?"-"+result:result;
         
     }
 }

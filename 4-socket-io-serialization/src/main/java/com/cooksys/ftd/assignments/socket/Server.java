@@ -74,8 +74,8 @@ public class Server extends Utils {
   		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
     	jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
   		jaxbMarshaller.marshal(student, serverSocket.getOutputStream());
-  		serverSocket.shutdownOutput();
   		
+  		serverSocket.close();
   		server.close();
     	}
     	catch(Exception e){

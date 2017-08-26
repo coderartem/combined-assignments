@@ -40,7 +40,7 @@ public class Utils {
     public static Config loadConfig(String configFilePath, JAXBContext jaxb) {
     	    	
     	try {
-    			
+    		//Unmarshal Config.xml
     		Unmarshaller jaxbUnmarshaller = jaxb.createUnmarshaller();
     		return (Config) jaxbUnmarshaller.unmarshal(new File(configFilePath));
 

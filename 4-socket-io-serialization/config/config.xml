@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <config>
-	<local port="1337"/>
-	<remote host="172.17.192.130" port="1337"/>
+	<local port="8555"/>
+	<remote host="172.17.192.130" port="8555"/>
 	<student-file-path>config/student.xml</student-file-path>
 </config>
